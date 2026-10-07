@@ -59,8 +59,8 @@ export function SiteFooter() {
             <Link href="/prospectus" className="hover:underline">
               Prospectus
             </Link>
-            <Link href="/parts/social" className="hover:underline">
-              Parts social
+            <Link href="/parts" className="hover:underline">
+              Parts
             </Link>
             <Link href="/parts/ignition-modules" className="hover:underline">
               Ignition modules
