@@ -1,26 +1,101 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --paper: #ffffff;
+  --paper-soft: #f3f6fb;
+  --ink: #0a1628;
+  --ink-soft: #3d4f63;
+  --blue: #0c4da2;
+  --blue-deep: #073572;
+  --blue-mist: #dce8f7;
+  --red: #c62828;
+  --line: #d4dee9;
+  --shadow: 0 24px 60px rgba(8, 53, 114, 0.12);
+  /* Fallback until SiteHeader measures itself. */
+  --chrome-h: 5.35rem;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-paper: var(--paper);
+  --color-paper-soft: var(--paper-soft);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-blue: var(--blue);
+  --color-blue-deep: var(--blue-deep);
+  --color-blue-mist: var(--blue-mist);
+  --color-red: var(--red);
+  --color-line: var(--line);
+  --font-display: var(--font-barlow);
+  --font-sans: var(--font-source);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-source), system-ui, sans-serif;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--blue) 28%, white);
+  color: var(--ink);
+}
+
+.hero-field {
+  background:
+    radial-gradient(ellipse 90% 70% at 78% 35%, rgba(12, 77, 162, 0.22), transparent 58%),
+    linear-gradient(165deg, #eef3fa 0%, #ffffff 42%, #f7f9fc 100%);
+}
+
+.container-face {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.55), transparent 30%),
+    linear-gradient(90deg, #0c4da2 0%, #0a4290 48%, #083572 100%);
+  box-shadow: var(--shadow);
+}
+
+.accent-slash {
+  display: inline-block;
+  width: 2.5rem;
+  height: 3px;
+  background: var(--red);
+}
+
+.section-y {
+  padding-block: 3.5rem;
+}
+
+@media (min-width: 768px) {
+  .section-y {
+    padding-block: 4.5rem;
+  }
+}
+
+.media-ph {
+  background:
+    linear-gradient(135deg, rgba(12, 77, 162, 0.12), rgba(7, 53, 114, 0.35)),
+    repeating-linear-gradient(
+      -12deg,
+      transparent,
+      transparent 12px,
+      rgba(255, 255, 255, 0.04) 12px,
+      rgba(255, 255, 255, 0.04) 24px
+    );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
